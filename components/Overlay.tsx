@@ -114,8 +114,8 @@ function ProjectBox({ subtitle, title, details, tech, link }: { subtitle: string
               <span className="font-sans text-xs md:text-sm tracking-[0.2em] font-medium text-white/80">{tech}</span>
             </div>
             
-            <a href={link} className="flex items-center justify-between px-6 py-3 w-fit md:ml-auto group/btn bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 rounded-full transition-all duration-500">
-              <span className="font-sans text-xs tracking-[0.2em] uppercase text-white/70 group-hover/btn:text-white transition-colors duration-500 mr-4">Component</span>
+            <a href={link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between px-6 py-3 w-fit md:ml-auto group/btn bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 rounded-full transition-all duration-500 cursor-pointer pointer-events-auto">
+              <span className="font-sans text-xs tracking-[0.2em] uppercase text-white/70 group-hover/btn:text-white transition-colors duration-500 mr-4">See Live Project</span>
               <div className="h-8 w-8 rounded-full bg-white text-black flex items-center justify-center transition-transform duration-500 group-hover/btn:scale-110 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                 <span className="text-xl -rotate-45 group-hover/btn:rotate-0 transition-transform duration-500">→</span>
               </div>
