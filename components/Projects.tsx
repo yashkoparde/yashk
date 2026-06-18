@@ -1,29 +1,33 @@
-
-
 const projects = [
   {
-    title: "Voice-Based Assistant",
+    title: "Wheyo",
     description:
-      "A real-world voice system resolving user queries using dynamic NLP integration.",
-    tags: ["React", "APIs", "Node.js"],
+      "A managed cloud kitchen operating system and marketplace helping food entrepreneurs launch and operate digital kitchens without traditional restaurant overhead.",
+    tags: ["Next.js", "React", "Node.js", "Database", "Admin Dashboard", "Vercel"],
   },
   {
-    title: "Healthcare Interface",
+    title: "Parakh",
     description:
-      "An API-driven application allowing seamless scheduling and health record access.",
-    tags: ["TypeScript", "Next.js", "OAuth"],
+      "An AI-powered academic integrity platform designed to automate assessment grading, detect plagiarism, and evaluate answer-sheets via OCR.",
+    tags: ["Next.js", "AI APIs", "OCR", "Analytics Dashboard"],
   },
   {
-    title: "Freelance Operations Portal",
+    title: "Evidentia",
     description:
-      "A production-level solution managing client workflows and six-figure revenues.",
-    tags: ["System Design", "C++", "REST APIs"],
+      "A digital evidence collection and verification system. It extracts structured information from raw files and automates audit trails.",
+    tags: ["Next.js", "AI Processing", "Document Analysis", "Secure Storage"],
   },
   {
-    title: "Community Management Bot",
+    title: "Pharmix",
     description:
-      "A large-scale WhatsApp bot managing a university-wide network securely.",
-    tags: ["JavaScript", "Webhooks", "Bot API"],
+      "A B2B digital supply network connecting pharmacies with verified pharmaceutical distributors. It simplifies medicine procurement through real-time stock levels and price comparison.",
+    tags: ["Next.js", "Marketplace Architecture", "Inventory Systems", "Supplier Network"],
+  },
+  {
+    title: "HeHo",
+    description:
+      "A no-code AI backend orchestration framework that connects AI agents securely to databases, enabling autonomous CRUD operations and instant REST APIs.",
+    tags: ["AI Agents", "Supabase", "REST APIs", "LLM Integrations"],
   },
 ];
 

@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Yash | Creative Developer",
-  description: "Portfolio of Yash, a creative developer bridging design and engineering.",
+  title: "Yash Koparde | Full-Stack Developer & Student Founder",
+  description: "Portfolio of Yash Koparde, a Full-Stack Developer, Student Founder, and Tech Lead building scalable applications.",
 };
 
 export default function RootLayout({

@@ -157,7 +157,7 @@ export function ScrollyCanvas() {
                 Yash Koparde
               </h1>
               <p className="font-sans text-[clamp(0.8rem,2vw,1.2rem)] font-medium text-white/50 uppercase tracking-[0.5em] mt-6">
-                Creative Developer
+                Full-Stack Developer & Student Founder
               </p>
               {!isLoaded && (
                 <p className="font-sans text-[0.6rem] font-medium text-white/30 uppercase tracking-[0.3em] mt-12 animate-pulse">
