@@ -416,17 +416,17 @@ export function Overlay({ scrollYProgress }: { scrollYProgress: MotionValue<numb
 
       {/* 0.91 - 0.95: More Projects Grid */}
       <Section scrollYProgress={scrollYProgress} start={0.91} end={0.95} align="full" position="bottom">
-        <div className="flex flex-col gap-6 w-full pointer-events-auto max-w-[90vw] mx-auto px-4 md:px-8">
-           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-2">
-             <div className="flex items-center gap-4">
-               <span className="font-sans text-xs tracking-[0.3em] uppercase text-white/50 pl-2">More Key Works</span>
-               <div className="h-[1px] w-[15vw] bg-white/10 hidden sm:block" />
-             </div>
+        <div className="flex flex-col gap-8 w-full pointer-events-auto max-w-[90vw] mx-auto px-4 md:px-8">
+           <div className="flex flex-col items-center text-center gap-3 mb-4 w-full">
+             <span className="font-sans text-[10px] tracking-[0.4em] uppercase text-white/40">ADDITIONAL CONTRIBUTIONS</span>
+             <h2 className="font-serif text-[clamp(2.2rem,4.5vw,3.8rem)] font-bold tracking-tight text-white leading-none">
+               More Key Works
+             </h2>
              <a 
                href="https://yk-projects.vercel.app" 
                target="_blank" 
                rel="noopener noreferrer" 
-               className="border border-white/20 hover:border-white px-6 py-2.5 rounded-full flex gap-3 items-center justify-center bg-white/5 backdrop-blur-md transition-all duration-500 hover:scale-105 text-xs uppercase tracking-widest text-white/80 hover:text-white"
+               className="mt-3 border border-white/10 hover:border-white/30 hover:bg-white/10 px-8 py-3 rounded-full flex gap-3 items-center justify-center bg-white/5 backdrop-blur-md transition-all duration-500 hover:scale-105 text-xs uppercase tracking-[0.2em] font-semibold text-white/80 hover:text-white shadow-[0_10px_30px_rgba(0,0,0,0.5)] cursor-pointer"
              >
                <span>View All Projects</span>
                <span className="text-sm">→</span>
