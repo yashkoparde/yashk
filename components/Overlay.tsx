@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, MotionValue, useTransform } from "framer-motion";
-import React from "react";
+import { motion, MotionValue, useTransform, useMotionValueEvent } from "framer-motion";
+import React, { useState, useEffect } from "react";
 
 interface SectionProps {
   scrollYProgress: MotionValue<number>;
@@ -30,11 +30,22 @@ function Section({ scrollYProgress, start, end, children, align = "center", posi
   }
 
   const opacity = useTransform(scrollYProgress, inputMap, opacityOutput);
-  // Safely toggles interaction without breaking Framer's strictly numerical interpolation engine
-  const pointerEvents = useTransform(scrollYProgress, (v) => {
-    return (v >= in1 && v <= in3) ? "auto" : "none";
-  });
   const y = useTransform(scrollYProgress, inputMap, yOutput);
+
+  // Standard React state for 100% reliable DOM updates of pointer-events
+  const [isActive, setIsActive] = useState(false);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const active = latest >= in1 && latest <= in3;
+    if (active !== isActive) {
+      setIsActive(active);
+    }
+  });
+
+  useEffect(() => {
+    const current = scrollYProgress.get();
+    setIsActive(current >= in1 && current <= in3);
+  }, [scrollYProgress, in1, in3]);
 
   let alignClasses = "";
   if (align === "left") alignClasses = "items-start text-left px-4 md:pl-10 lg:pl-[6vw] xl:pl-[10vw]";
@@ -50,7 +61,12 @@ function Section({ scrollYProgress, start, end, children, align = "center", posi
 
   return (
     <motion.div
-      style={{ opacity, y, pointerEvents }}
+      style={{ 
+        opacity, 
+        y, 
+        pointerEvents: isActive ? "auto" : "none",
+        visibility: isActive || opacity.get() > 0.01 ? "visible" : "hidden"
+      }}
       className={`absolute inset-0 flex h-full w-full flex-col ${alignClasses} ${posClasses}`}
     >
       <div className={widthClass}>

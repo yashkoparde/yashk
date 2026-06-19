@@ -110,8 +110,35 @@ export function ScrollyCanvas() {
   const topGateY = useTransform(scrollYProgress, [0, 0.05], ["0%", "-100%"]);
   const bottomGateY = useTransform(scrollYProgress, [0, 0.05], ["0%", "100%"]);
   const gateOpacity = useTransform(scrollYProgress, [0.04, 0.06], [1, 0]);
-  const pointerEventsGate = useTransform(scrollYProgress, [0.05, 0.06], ["auto", "none"]);
   
+  // React state for 100% reliable DOM update of pointer-events for the entrance gate
+  const [gateActive, setGateActive] = useState(true);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (!isLoaded || images.length === 0) return;
+    
+    // Sequence must begin AFTER the landing scroll (gate opening) is done
+    let sequenceProgress = 0;
+    if (latest > 0.05) {
+      sequenceProgress = (latest - 0.05) / 0.95;
+    }
+    
+    let frameIndex = Math.floor(sequenceProgress * (FRAME_COUNT - 1));
+    frameIndex = Math.max(0, Math.min(FRAME_COUNT - 1, frameIndex));
+    renderFrame(frameIndex);
+
+    // Toggle gate interactivity
+    const active = latest < 0.05;
+    if (active !== gateActive) {
+      setGateActive(active);
+    }
+  });
+
+  useEffect(() => {
+    const current = scrollYProgress.get();
+    setGateActive(current < 0.05);
+  }, [scrollYProgress]);
+
   const titleOpacity = useTransform(scrollYProgress, [0, 0.02, 0.05], [1, 0, 0]);
   const titleScale = useTransform(scrollYProgress, [0, 0.02], [1, 0.95]);
   const titleFilter = useTransform(scrollYProgress, [0, 0.02], ["blur(0px)", "blur(20px)"]);
@@ -129,7 +156,7 @@ export function ScrollyCanvas() {
         
         {/* Pure Scroll-Driven Cinematic Entrance */}
         <motion.div 
-          style={{ opacity: gateOpacity, pointerEvents: pointerEventsGate as any }} 
+          style={{ opacity: gateOpacity, pointerEvents: gateActive ? "auto" : "none" }} 
           className="absolute inset-0 z-[100] flex flex-col"
         >
           {/* TOP GATE PANEL */}
